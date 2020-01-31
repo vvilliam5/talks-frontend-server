@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1 Talk Topic: #{talk.topic}
+    h3 Location: #{talk.location}
+    h3 Time: #{talk.time}
+    a.btn.btn-primary.text-white.mr-2(href='/' + talk._id + '/attendees') View Attendees
+    a.btn.btn-danger.text-white.mr-2(href='/' + talk._id + '/delete') Delete Talk

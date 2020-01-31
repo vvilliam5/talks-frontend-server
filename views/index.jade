@@ -1,0 +1,24 @@
+extends layout
+block content
+  .container
+    .row
+      .col-sm
+        a.btn.btn-primary.text-white(href="/addTalk") Add a Talk
+    h2.text-center Curent list of talks
+    table.table
+      thead
+        tr
+          th(scope="col") #
+          th(scope="col") Talk Topic
+          th(scope="col") Location
+          th(scope="col") Time
+      each talk in talks
+        tbody
+          tr
+            th(scope="row") #{num += 1}
+            th(scope="row") #{talk.topic}
+            th(scope="row") #{talk.location}
+            th(scope="row") #{talk.time}
+            th(scope="row")
+              a.btn.btn-primary.text-white.mr-1(href='/' + talk._id) View
+              a.btn.btn-danger.text-white(href='/' + talk._id + '/delete') Delete

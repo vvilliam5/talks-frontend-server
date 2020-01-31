@@ -1,0 +1,27 @@
+extends layout
+block content
+    -let echo = () =>{console.log('CLicked')}
+    h2.text-center List of Attendees
+    form(action="/" + talkid + '/attendee', method="post")
+        label(for="topic") Enter Name:
+        input(type="text", class="", id="name", name="name", required)
+        label(for="location") Enter Email:
+        input(type="text", class="", id="email", name="email")
+        input(type="hidden", id="talkid", name="talkid" value = talkid)
+        button(type="submit", class="btn btn-primary") Add new Attendee
+    table.table
+      thead
+        tr
+          th(scope="col") #
+          th(scope="col") Name
+          th(scope="col") Email
+      each attendee in attendees
+        tbody
+          tr
+            th(scope="row") #{num += 1}
+            th(scope="row") #{attendee.name}
+            th(scope="row") #{attendee.email}
+            th(scope="row")
+              a.btn.btn-danger.text-white(href='/' + talkid + '/attendee/' + attendee._id + '/delete') Delete
+
+             

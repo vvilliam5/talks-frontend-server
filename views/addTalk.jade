@@ -1,0 +1,16 @@
+extends layout
+    
+block content
+    h1 Create a new talk
+    form(action="/addTalk" method="post")
+        .form-group
+            label(for="topic") Enter Topic:
+            input(type="text", class="", id="topic", name="topic", required)
+        .form-group
+            label(for="location") Enter Location:
+            input(type="text", class="", id="location", name="location")
+        .form-group
+            label(for="time") Enter Time:
+            input(type="datetime-local", class="", id="time", name="time")
+        .form-group
+            button(type="submit", class="btn btn-primary") Submit
